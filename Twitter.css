@@ -29,6 +29,7 @@
   }
 
   .scene {
+    width: 100vw;
     transform: none;
   }
 }
