@@ -4,17 +4,25 @@
 
 
 .twitter-frame {
-  width: auto;   /* IMPORTANT : pas de 60% */
+  width: auto;
   display: block;
 }
 
 .background {
   position: absolute;
-
   top: 0px;
   left: 480px;
   width: 35%;
-  */
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .scene {
+    transform: scale(0.45);
+    transform-origin: top left;
+  }
+
 }
 
 
