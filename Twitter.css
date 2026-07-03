@@ -19,12 +19,18 @@
 @media screen and (max-width: 768px) {
 
   .background {
-    width: 80%;   
-    left: 90%;
+    width: 85%;
+
+   
+    left: 50%;
+    top: 10px;
+
     transform: translateX(-50%);
-    top: 0px;
   }
 
+  .scene {
+    transform: none;
+  }
 }
 
 
