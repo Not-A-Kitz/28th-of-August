@@ -32,7 +32,10 @@
 
   width: 7%;
   left: 48%;
-  top: 84%;
+  top: 85%;
+
+  transform: translate(-50%, -50%);
+  display: block;
 }
 
 .CompleteLike {
@@ -66,7 +69,7 @@
   position: absolute;
 
   left: 50%;
-  top: 90%;
+  top: 95%;
 
   width: 85%;
   height: 60px;
@@ -80,9 +83,9 @@
 #reply-video {
   position: absolute;
 
-  width: 92%;
+   width: 92%;
   left: 50%;
-  top: 75%;
+  top: 97%;
 
   transform: translate(-50%, -50%);
 
@@ -94,9 +97,9 @@
 #reply-final {
   position: absolute;
 
-  width: 92%;
+   width: 97%;
   left: 50%;
-  top: 75%;
+  top: 94%;
 
   transform: translate(-50%, -50%);
 
