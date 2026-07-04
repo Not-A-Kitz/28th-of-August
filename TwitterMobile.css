@@ -7,6 +7,10 @@
 }
 
 
+.twitter {
+  position: relative;
+}
+
 .twitter-frame {
   width: 100%;
   height: auto;
@@ -19,20 +23,16 @@
   width: 98%;
   margin: 10px auto 0;
   display: block;
-
-  top: auto;
-  left: auto;
-  transform: none;
 }
 
 
 .like,
 .CompleteLike {
   position: absolute;
-  width: 7%;
 
+  width: 7%;
   left: 78%;
-  top: 90%;
+  top: 62%;
 }
 
 .CompleteLike {
@@ -66,7 +66,7 @@
   position: absolute;
 
   left: 50%;
-  top: 86%;
+  top: 88%;
 
   width: 85%;
   height: 60px;
@@ -82,7 +82,7 @@
 
   width: 92%;
   left: 50%;
-  top: 86%;
+  top: 70%;
 
   transform: translate(-50%, -50%);
 
@@ -96,7 +96,7 @@
 
   width: 92%;
   left: 50%;
-  top: 86%;
+  top: 70%;
 
   transform: translate(-50%, -50%);
 
