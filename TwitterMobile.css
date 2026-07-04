@@ -30,9 +30,9 @@
 .CompleteLike {
   position: absolute;
 
-  width: 7%;
+  width: 9%;
   left: 48%;
-  top: 85%;
+  top: 84%;
 
   transform: translate(-50%, -50%);
   display: block;
