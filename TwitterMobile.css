@@ -1,0 +1,147 @@
+/* =========================
+   MOBILE ONLY VERSION
+========================= */
+
+.scene {
+  position: relative;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER TWITTER ===== */
+.twitter-frame {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== TWEET ===== */
+.background {
+  position: relative;
+  width: 92%;
+  margin: 10px auto 0;
+  display: block;
+
+  top: auto;
+  left: auto;
+  transform: none;
+}
+
+/* ===== LIKE / COMPLETE LIKE ===== */
+.like,
+.CompleteLike {
+  position: absolute;
+
+  width: 7%;
+  left: 78%;
+  top: 58%;
+
+  cursor: pointer;
+  transform-origin: center;
+}
+
+.CompleteLike {
+  display: none;
+}
+
+/* ===== ANIMATION LIKE ===== */
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pop {
+  animation: popIn 0.4s ease;
+}
+
+/* ===== REPLY ZONE ===== */
+.reply-trigger {
+  position: absolute;
+
+  left: 50%;
+  top: 82%;
+
+  width: 85%;
+  height: 60px;
+
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* ===== VIDEO ===== */
+#reply-video {
+  position: absolute;
+
+  width: 92%;
+  left: 50%;
+  top: 68%;
+
+  transform: translate(-50%, -50%);
+
+  display: none;
+  z-index: 100;
+}
+
+/* ===== FINAL IMAGE ===== */
+#reply-final {
+  position: absolute;
+
+  width: 92%;
+  left: 50%;
+  top: 68%;
+
+  transform: translate(-50%, -50%);
+
+  display: none;
+  z-index: 101;
+}
+
+/* ===== SECRET NOTIFICATION ===== */
+#secret {
+  position: fixed;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%) translateY(-20px) scale(0.9);
+
+  opacity: 0;
+
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
+  z-index: 9999;
+}
+
+/* ===== NOTIF ANIMATION ===== */
+@keyframes notifBounce {
+  0% {
+    transform: translateX(-50%) translateY(-30px) scale(0.9);
+  }
+
+  60% {
+    transform: translateX(-50%) translateY(5px) scale(1.05);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
