@@ -29,11 +29,10 @@
 .like,
 .CompleteLike {
   position: absolute;
-
   width: 7%;
 
-  left: 62%;
-  top: 62%;   
+  left: 78%;
+  top: 66%;
 }
 
 .CompleteLike {
@@ -67,7 +66,7 @@
   position: absolute;
 
   left: 50%;
-  top: 92%;
+  top: 86%;
 
   width: 85%;
   height: 60px;
@@ -77,13 +76,13 @@
   z-index: 10;
 }
 
-/* ===== VIDEO ===== */
+
 #reply-video {
   position: absolute;
 
   width: 92%;
   left: 50%;
-  top: 82%;
+  top: 86%;
 
   transform: translate(-50%, -50%);
 
@@ -91,13 +90,13 @@
   z-index: 100;
 }
 
-/* ===== FINAL IMAGE ===== */
+
 #reply-final {
   position: absolute;
 
   width: 92%;
   left: 50%;
-  top: 82%;
+  top: 86%;
 
   transform: translate(-50%, -50%);
 
@@ -105,7 +104,7 @@
   z-index: 101;
 }
 
-/* ===== SECRET NOTIFICATION ===== */
+
 #secret {
   position: fixed;
 
@@ -127,7 +126,7 @@
   z-index: 9999;
 }
 
-/* ===== NOTIF ANIMATION ===== */
+
 @keyframes notifBounce {
   0% {
     transform: translateX(-50%) translateY(-30px) scale(0.9);
