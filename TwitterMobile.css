@@ -18,7 +18,7 @@
 /* ===== TWEET ===== */
 .background {
   position: relative;
-  width: 92%;
+  width: 98%;
   margin: 10px auto 0;
   display: block;
 
@@ -33,11 +33,9 @@
   position: absolute;
 
   width: 7%;
-  left: 78%;
-  top: 58%;
 
-  cursor: pointer;
-  transform-origin: center;
+  left: 78%;
+  top: 45%;   /* <- IMPORTANT : baisse la position */
 }
 
 .CompleteLike {
@@ -71,7 +69,7 @@
   position: absolute;
 
   left: 50%;
-  top: 82%;
+  top: 88%;
 
   width: 85%;
   height: 60px;
@@ -87,7 +85,7 @@
 
   width: 92%;
   left: 50%;
-  top: 68%;
+  top: 82%;
 
   transform: translate(-50%, -50%);
 
@@ -101,7 +99,7 @@
 
   width: 92%;
   left: 50%;
-  top: 68%;
+  top: 82%;
 
   transform: translate(-50%, -50%);
 
