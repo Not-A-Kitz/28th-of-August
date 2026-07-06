@@ -79,7 +79,7 @@ setTimeout(() => {
   gif.currentTime = 0;
   gif.play();
 
-}, 2000);
+}, 4000);
 
   };
 
