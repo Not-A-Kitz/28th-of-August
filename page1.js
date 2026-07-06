@@ -35,7 +35,7 @@ if (nextPage) {
       return;
     }
 
-    window.location.href = "TwitterMobile.html";
+    window.location.href = "TwitterMobilePop.html";
   });
 }
 
