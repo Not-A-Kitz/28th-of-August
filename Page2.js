@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let audioUnlocked = false;
 
 
-  function unlockAudio() {
+function unlockAudio() {
 
     if (audioUnlocked) return;
 
@@ -19,12 +19,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         audio1.pause();
         audio1.currentTime = 0;
+
+        return audio2.play();
+
+      })
+      .then(() => {
+
+        audio2.pause();
+        audio2.currentTime = 0;
+
         audioUnlocked = true;
 
       })
       .catch(() => {});
 
-  }
+}
 
 
   document.addEventListener("touchstart", unlockAudio, { once: true });
@@ -151,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-     if (
+   if (
   entry.target.id === "trigger-2" &&
   state === 1
 ) {
@@ -196,7 +205,6 @@ document.addEventListener("DOMContentLoaded", () => {
   state = 2;
 
 }
-
 
 
     });
