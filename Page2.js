@@ -12,26 +12,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function unlockAudio() {
 
-    if (audioUnlocked) return;
+  if (audioUnlocked) return;
 
-    audio1.play()
-      .then(() => {
+  audio1.play()
+    .then(() => {
 
-        audio1.pause();
-        audio1.currentTime = 0;
+      audio1.pause();
+      audio1.currentTime = 0;
 
-        return audio2.play();
+      audio2.volume = 0;
 
-      })
-      .then(() => {
+      return audio2.play();
 
-        audio2.pause();
-        audio2.currentTime = 0;
+    })
+    .then(() => {
 
-        audioUnlocked = true;
+      audio2.pause();
+      audio2.currentTime = 0;
 
-      })
-      .catch(() => {});
+      audioUnlocked = true;
+
+    })
+    .catch(() => {});
 
 }
 
@@ -165,13 +167,6 @@ if (
   state === 1
 ) {
 
-  audio2.pause();
-  audio2.currentTime = 0;
-  audio2.volume = 0;
-
-  audio2.play().catch(() => {});
-
-
   fadeOut(audio1);
 
 
@@ -181,22 +176,32 @@ if (
     audio1.currentTime = 0;
 
 
-    const fade = setInterval(() => {
+    audio2.volume = 0;
 
-      if (audio2.volume < 1) {
+    audio2.play()
+      .then(() => {
 
-        audio2.volume = Math.min(
-          audio2.volume + 0.033,
-          1
-        );
+        const fade = setInterval(() => {
 
-      } else {
+          if (audio2.volume < 1) {
 
-        clearInterval(fade);
+            audio2.volume = Math.min(
+              audio2.volume + 0.033,
+              1
+            );
 
-      }
+          } else {
 
-    }, 100);
+            clearInterval(fade);
+
+          }
+
+        }, 100);
+
+      })
+      .catch(error => {
+        console.log("Erreur audio2 :", error);
+      });
 
 
   }, 3000);
