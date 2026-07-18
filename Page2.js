@@ -106,15 +106,13 @@ function fadeOut(audio, duration = 3000) {
 
     } else {
 
-      audio.pause();
-      audio.currentTime = 0;
+      stopAudio(audio);
       clearInterval(fade);
 
     }
 
   }, 100);
 
-}
 }
 
 
