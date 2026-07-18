@@ -10,23 +10,20 @@ document.addEventListener("DOMContentLoaded", () => {
   let audioUnlocked = false;
 
 
-
+  // Débloque l'audio mobile sans lancer les deux musiques
   function unlockAudio() {
 
     if (audioUnlocked) return;
 
-    [audio1, audio2].forEach(audio => {
+    audio1.play()
+      .then(() => {
 
-      audio.play()
-        .then(() => {
-          audio.pause();
-          audio.currentTime = 0;
-        })
-        .catch(() => {});
+        audio1.pause();
+        audio1.currentTime = 0;
+        audioUnlocked = true;
 
-    });
-
-    audioUnlocked = true;
+      })
+      .catch(() => {});
 
   }
 
@@ -44,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const step = 100 / duration;
-
 
     const fade = setInterval(() => {
 
@@ -71,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const step = 100 / duration;
 
-
     const fade = setInterval(() => {
 
 
@@ -81,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
           audio.volume - step,
           0
         );
-
 
       } else {
 
@@ -127,11 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
         state === 1
       ) {
 
-
         fadeOut(audio1);
 
 
-  
         setTimeout(() => {
 
           fadeIn(audio2);
@@ -159,10 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
-
-
   const twitterButton = document.getElementById("open-twitter");
 
 
@@ -170,10 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     twitterButton.addEventListener("click", () => {
 
-
       const isMobile =
         /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
 
 
       if (isMobile) {
@@ -186,13 +172,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       }
 
-
     });
 
   }
-
-
-
 
 
 
