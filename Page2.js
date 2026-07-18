@@ -160,17 +160,10 @@ function unlockAudio() {
 
 
 
-   if (
+if (
   entry.target.id === "trigger-2" &&
   state === 1
 ) {
-
-  audio2.pause();
-  audio2.currentTime = 0;
-  audio2.volume = 0;
-
-  audio2.play().catch(() => {});
-
 
   fadeOut(audio1);
 
@@ -181,22 +174,7 @@ function unlockAudio() {
     audio1.currentTime = 0;
 
 
-    const fade = setInterval(() => {
-
-      if (audio2.volume < 1) {
-
-        audio2.volume = Math.min(
-          audio2.volume + 0.033,
-          1
-        );
-
-      } else {
-
-        clearInterval(fade);
-
-      }
-
-    }, 100);
+    fadeIn(audio2);
 
 
   }, 3000);
