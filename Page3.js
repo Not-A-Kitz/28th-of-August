@@ -147,11 +147,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (isMobile) {
 
-        window.location.href = "TwitterMobile.html";
+        window.location.href = "TwitterMobilePop.html";
 
       } else {
 
-        window.location.href = "TwitterDesktop.html";
+        window.location.href = "TwitterDesktopPop.html";
 
       }
 
