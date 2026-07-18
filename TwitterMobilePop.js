@@ -2,6 +2,12 @@ const like = document.querySelector(".like");
 const completeLike = document.querySelector(".CompleteLike");
 const newTweetsButton = document.getElementById("new-tweets-button");
 
+const trigger = document.querySelector(".reply-trigger");
+const video = document.getElementById("reply-video");
+const finalImg = document.getElementById("reply-final");
+const gif = document.getElementById("gif");
+const secret = document.getElementById("secret");
+
 let liked = false;
 
 function animate(el) {
@@ -34,10 +40,7 @@ completeLike.addEventListener("click", () => {
 
 
 
-const trigger = document.querySelector(".reply-trigger");
-const video = document.getElementById("reply-video");
-const finalImg = document.getElementById("reply-final");
-const secret = document.getElementById("secret");
+
 
 trigger.addEventListener("click", () => {
 
@@ -78,10 +81,14 @@ setTimeout(() => {
   gif.currentTime = 0;
   gif.play();
 
-
   setTimeout(() => {
-    newTweetsButton.style.display = "block";
+ if (newTweetsButton) {
+  newTweetsButton.style.display = "block";
+}
   }, 1000);
 
-
 }, 4000);
+
+  };
+
+});
