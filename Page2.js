@@ -151,35 +151,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-      if (
-        entry.target.id === "trigger-2" &&
-        state === 1
-      ) {
+     if (
+  entry.target.id === "trigger-2" &&
+  state === 1
+) {
+
+  audio2.pause();
+  audio2.currentTime = 0;
+  audio2.volume = 0;
+
+  audio2.play().catch(() => {});
 
 
-
-        fadeOut(audio1);
-
+  fadeOut(audio1);
 
 
-        setTimeout(() => {
+  setTimeout(() => {
+
+    audio1.pause();
+    audio1.currentTime = 0;
 
 
-          // Sécurité supplémentaire
-          stopAudio(audio1);
+    const fade = setInterval(() => {
 
+      if (audio2.volume < 1) {
 
-          fadeIn(audio2);
+        audio2.volume = Math.min(
+          audio2.volume + 0.033,
+          1
+        );
 
+      } else {
 
-        }, 3000);
-
-
-
-        state = 2;
-
+        clearInterval(fade);
 
       }
+
+    }, 100);
+
+
+  }, 3000);
+
+
+  state = 2;
+
+}
 
 
 
@@ -250,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-  }
+  } 
 
 
 
