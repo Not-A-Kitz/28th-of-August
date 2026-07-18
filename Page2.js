@@ -14,26 +14,22 @@ function unlockAudio() {
 
   if (audioUnlocked) return;
 
-  audio1.play()
-    .then(() => {
+  [audio1, audio2].forEach(audio => {
 
-      audio1.pause();
-      audio1.currentTime = 0;
+    audio.volume = 0;
 
-      audio2.volume = 0;
+    audio.play()
+      .then(() => {
 
-      return audio2.play();
+        audio.pause();
+        audio.currentTime = 0;
 
-    })
-    .then(() => {
+      })
+      .catch(() => {});
 
-      audio2.pause();
-      audio2.currentTime = 0;
+  });
 
-      audioUnlocked = true;
-
-    })
-    .catch(() => {});
+  audioUnlocked = true;
 
 }
 
@@ -172,10 +168,7 @@ if (
 
   setTimeout(() => {
 
-    audio1.pause();
-    audio1.currentTime = 0;
-
-
+    audio2.currentTime = 0;
     audio2.volume = 0;
 
     audio2.play()
@@ -200,7 +193,7 @@ if (
 
       })
       .catch(error => {
-        console.log("Erreur audio2 :", error);
+        console.log(error);
       });
 
 
