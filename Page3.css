@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap');
+
+body{
+  margin:0;
+  font-family: "Grenze Gotisch", serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height:1.8;
+
+  background:#780606;
+
+  min-height: 100vh;  
+  display: flex;       
+  flex-direction: column; 
+}
+
+html, body {
+  height: 100%;
+}
+
+.text-section{
+  max-width:800px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.spacer {
+  height: 200px;
+  position: relative;
+}
+
+#prev-page {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999; 
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+#prev-page img {
+  width: 60px;
+  height: auto;
+  display: block;
+
+  pointer-events: none;
+}
+
+#trigger-2 {
+  height: 50px;
+}
+
+#left-decoration {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 180px;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.ending-image{
+  text-align: center;
+  margin-top: 80px;
+}
+
+#Down{
+  width: 300px;
+  display: inline-block;
+}
+
+#open-twitter {
+  display: flex;
+
+  width: fit-content;
+  height: fit-content;
+
+  margin: 20px auto;
+
+  cursor: pointer;
+}
+
+
+#open-twitter {
+  display: flex;
+
+  width: fit-content;
+  height: fit-content;
+
+  margin: 20px auto;
+
+  cursor: pointer;
+
+  position: relative;
+}
+
+
+#open-twitter img {
+  width: 60px;
+  height: auto;
+
+  display: block;
+
+  transition: transform 0.2s ease;
+}
+
+
+#open-twitter:hover img {
+  transform: scale(1.1);
+}
+
+
+
+#open-twitter::after {
+  content: "Open Twitter";
+
+  position: absolute;
+
+  left: 50%;
+  top: 110%;
+
+  transform: translateX(-50%);
+
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+
+  padding: 6px 12px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.2s ease;
+}
+
+
+#open-twitter:hover::after {
+  opacity: 1;
+}
+
+#prev-page:hover img {
+  transform: scale(1.15);
+}
+
+#prev-page img {
+  transition: transform 0.2s ease;
+}
