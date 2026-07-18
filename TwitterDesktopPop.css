@@ -1,0 +1,236 @@
+.scene {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+.twitter {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  margin: 0 auto;
+
+  width: fit-content;
+}
+
+
+
+.twitter-frame {
+  width: 302px;
+  height: 878px;
+
+  display: block;
+
+  flex-shrink: 0;
+}
+
+
+
+.background {
+  width: 650px;
+  height: auto;
+
+  display: block;
+}
+
+
+
+
+
+
+.like,
+.CompleteLike {
+  position: absolute;
+
+  left: 323px;
+  top: 667px;
+
+  width: 55px;
+  cursor: pointer;
+
+  transform-origin: center;
+}
+
+.CompleteLike {
+  display: none;
+}
+
+
+
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pop {
+  animation: popIn 0.4s ease;
+}
+
+
+
+
+
+
+#secret {
+  position: fixed;   
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%) translateY(-20px) scale(0.9);
+
+  opacity: 0;
+
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
+  z-index: 9999;
+}
+
+@keyframes notifBounce {
+  0% {
+    transform: translateX(-50%) translateY(-30px) scale(0.9);
+  }
+ 
+  60% {
+    transform: translateX(-50%) translateY(5px) scale(1.05);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+
+.reply-trigger{
+  position: absolute;
+  
+  left: 50%;
+  top: 750px;
+
+  width: 500px;
+  height: 60px;
+
+  transform: translateX(-50%);
+
+  cursor: pointer;
+  background: transparent;
+  z-index: 10;
+}
+
+#reply-video{
+  position: absolute;
+
+  top: 102%;
+  left: 52%;
+
+  transform: translate(-50%, -50%);
+
+  width: 600px;    
+  height: auto;
+
+  object-fit: contain;
+
+  display: none;
+  z-index: 100;
+}
+
+#reply-final{
+  position: absolute;
+
+  top: 97%;
+  left: 49%;
+
+  transform: translate(-50%, -50%);
+
+  width: 632px;
+  height: auto;
+
+  object-fit: contain;
+
+  display: none;
+  z-index: 101;
+}
+
+
+
+
+.tweet-area {
+  position: relative;
+  width: 650px;
+}
+
+.thread {
+  width: 650px;
+  margin-left: calc(50% - 325px + 151px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#new-post {
+  width: 98%;
+  height: auto;
+  margin: 0;
+  display: none;
+  position: static;
+}
+
+
+#gif {
+  width: 90%;
+  height: auto;
+  margin: 10px 0;
+  display: none;
+  position: static;
+  object-fit: contain;
+}
+
+#new-tweets-button {
+  position: fixed;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: none;
+
+  background: #1d9bf0;
+  color: white;
+
+  padding: 12px 24px;
+
+  border-radius: 20px;
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+
+  text-decoration: none;
+
+  z-index: 10000;
+
+  cursor: pointer;
+}
