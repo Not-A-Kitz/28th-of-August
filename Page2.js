@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let audioUnlocked = false;
 
 
-  // Débloque l'audio mobile sans lancer les deux musiques
   function unlockAudio() {
 
     if (audioUnlocked) return;
@@ -33,16 +32,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+  function stopAudio(audio) {
+
+    audio.pause();
+    audio.currentTime = 0;
+    audio.volume = 0;
+
+  }
+
+
+
+
   function fadeIn(audio, duration = 3000) {
 
+
+    audio.pause();
+    audio.currentTime = 0;
     audio.volume = 0;
+
 
     audio.play().catch(() => {});
 
 
     const step = 100 / duration;
 
+
     const fade = setInterval(() => {
+
 
       if (audio.volume < 1) {
 
@@ -51,11 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
           1
         );
 
+
       } else {
 
         clearInterval(fade);
 
       }
+
 
     }, 100);
 
@@ -63,26 +83,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
   function fadeOut(audio, duration = 3000) {
 
+
     const step = 100 / duration;
+
 
     const fade = setInterval(() => {
 
 
       if (audio.volume > 0) {
 
+
         audio.volume = Math.max(
           audio.volume - step,
           0
         );
 
+
       } else {
 
-        audio.pause();
-        audio.currentTime = 0;
+
+        stopAudio(audio);
 
         clearInterval(fade);
+
 
       }
 
@@ -90,6 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100);
 
   }
+
+
+
+
 
 
 
@@ -108,11 +139,15 @@ document.addEventListener("DOMContentLoaded", () => {
         state === 0
       ) {
 
+
         fadeIn(audio1);
 
         state = 1;
 
+
       }
+
+
 
 
 
@@ -121,27 +156,43 @@ document.addEventListener("DOMContentLoaded", () => {
         state === 1
       ) {
 
+
+
         fadeOut(audio1);
+
 
 
         setTimeout(() => {
 
+
+          // Sécurité supplémentaire
+          stopAudio(audio1);
+
+
           fadeIn(audio2);
+
 
         }, 3000);
 
 
+
         state = 2;
 
+
       }
+
 
 
     });
 
 
+
   }, {
+
     threshold: 0.3
+
   });
+
 
 
 
@@ -156,15 +207,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (twitterButton) {
 
+
     twitterButton.addEventListener("click", () => {
+
 
       const isMobile =
         /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 
+
       if (isMobile) {
 
         window.location.href = "TwitterMobile.html";
+
 
       } else {
 
@@ -172,7 +227,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       }
 
+
     });
+
 
   }
 
@@ -183,13 +240,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (prevPage) {
 
+
     prevPage.addEventListener("click", () => {
+
 
       window.location.href = "index.html";
 
+
     });
 
+
   }
+
 
 
 });
