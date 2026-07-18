@@ -1,5 +1,6 @@
 const like = document.querySelector(".like");
 const completeLike = document.querySelector(".CompleteLike");
+const newTweetsButton = document.getElementById("new-tweets-button");
 
 let liked = false;
 
@@ -73,14 +74,14 @@ trigger.addEventListener("click", () => {
 
 setTimeout(() => {
 
-  const gif = document.getElementById("gif");
-
   gif.style.display = "block";
   gif.currentTime = 0;
   gif.play();
 
+
+  setTimeout(() => {
+    newTweetsButton.style.display = "block";
+  }, 1000);
+
+
 }, 4000);
-
-  };
-
-});
