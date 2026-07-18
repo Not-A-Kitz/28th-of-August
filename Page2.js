@@ -1,20 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const audio1 = document.getElementById("ALLWOUNDUP");
-  const audio2 = document.getElementById("GODDESS");
+  const audio = document.getElementById("ALLWOUNDUP");
+  const trigger = document.getElementById("trigger-1");
 
-  const trigger1 = document.getElementById("trigger-1");
-  const trigger2 = document.getElementById("trigger-2");
-
-  let state = 0;
+  let started = false;
   let audioUnlocked = false;
 
 
-function unlockAudio() {
 
-  if (audioUnlocked) return;
+  function unlockAudio() {
 
-  [audio1, audio2].forEach(audio => {
+    if (audioUnlocked || !audio) return;
 
     audio.volume = 0;
 
@@ -24,14 +20,13 @@ function unlockAudio() {
         audio.pause();
         audio.currentTime = 0;
 
+        audioUnlocked = true;
+
       })
       .catch(() => {});
 
-  });
+  }
 
-  audioUnlocked = true;
-
-}
 
 
   document.addEventListener("touchstart", unlockAudio, { once: true });
@@ -40,34 +35,20 @@ function unlockAudio() {
 
 
 
-
-  function stopAudio(audio) {
-
-    audio.pause();
-    audio.currentTime = 0;
-    audio.volume = 0;
-
-  }
-
-
-
-
   function fadeIn(audio, duration = 3000) {
 
+    if (!audio) return;
 
-    audio.pause();
     audio.currentTime = 0;
     audio.volume = 0;
-
 
     audio.play().catch(() => {});
 
 
-    const step = 100 / duration;
+    const step = 1 / (duration / 100);
 
 
     const fade = setInterval(() => {
-
 
       if (audio.volume < 1) {
 
@@ -76,46 +57,15 @@ function unlockAudio() {
           1
         );
 
-
       } else {
 
         clearInterval(fade);
 
       }
 
-
     }, 100);
 
   }
-
-
-
-
-function fadeOut(audio, duration = 3000) {
-
-  const step = 1 / (duration / 100);
-
-  const fade = setInterval(() => {
-
-    if (audio.volume > 0) {
-
-      audio.volume = Math.max(
-        audio.volume - step,
-        0
-      );
-
-    } else {
-
-      stopAudio(audio);
-      clearInterval(fade);
-
-    }
-
-  }, 100);
-
-}
-
-
 
 
 
@@ -132,43 +82,17 @@ function fadeOut(audio, duration = 3000) {
 
       if (
         entry.target.id === "trigger-1" &&
-        state === 0
+        !started
       ) {
 
+        fadeIn(audio);
 
-        fadeIn(audio1);
-
-        state = 1;
-
+        started = true;
 
       }
 
 
-
-
-
-if (
-  entry.target.id === "trigger-2" &&
-  state === 1
-) {
-
-  fadeOut(audio1, 3000, () => {
-
-    audio2.currentTime = 0;
-    audio2.volume = 0;
-
-    fadeIn(audio2);
-
-  });
-
-
-  state = 2;
-
-}
-
-
     });
-
 
 
   }, {
@@ -179,9 +103,9 @@ if (
 
 
 
-
-  if (trigger1) observer.observe(trigger1);
-  if (trigger2) observer.observe(trigger2);
+  if (trigger) {
+    observer.observe(trigger);
+  }
 
 
 
@@ -190,7 +114,6 @@ if (
 
 
   if (twitterButton) {
-
 
     twitterButton.addEventListener("click", () => {
 
@@ -204,7 +127,6 @@ if (
 
         window.location.href = "TwitterMobile.html";
 
-
       } else {
 
         window.location.href = "TwitterDesktop.html";
@@ -214,28 +136,23 @@ if (
 
     });
 
-
   }
 
 
 
-  const prevPage = document.getElementById("prev-page");
+
+  const nextPage = document.getElementById("next-page");
 
 
-  if (prevPage) {
+  if (nextPage) {
 
+    nextPage.addEventListener("click", () => {
 
-    prevPage.addEventListener("click", () => {
-
-
-      window.location.href = "index.html";
-
+      window.location.href = "Page3.html";
 
     });
 
-
-  } 
-
+  }
 
 
 });
