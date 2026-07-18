@@ -91,7 +91,7 @@ function unlockAudio() {
 
 
 
-function fadeOut(audio, duration = 3000, callback) {
+function fadeOut(audio, duration = 3000) {
 
   const step = 1 / (duration / 100);
 
@@ -110,12 +110,11 @@ function fadeOut(audio, duration = 3000, callback) {
       audio.currentTime = 0;
       clearInterval(fade);
 
-      if (callback) callback();
-
     }
 
   }, 100);
 
+}
 }
 
 
