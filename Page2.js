@@ -91,40 +91,32 @@ function unlockAudio() {
 
 
 
+function fadeOut(audio, duration = 3000, callback) {
 
-  function fadeOut(audio, duration = 3000) {
+  const step = 1 / (duration / 100);
 
+  const fade = setInterval(() => {
 
-    const step = 100 / duration;
+    if (audio.volume > 0) {
 
+      audio.volume = Math.max(
+        audio.volume - step,
+        0
+      );
 
-    const fade = setInterval(() => {
+    } else {
 
+      audio.pause();
+      audio.currentTime = 0;
+      clearInterval(fade);
 
-      if (audio.volume > 0) {
+      if (callback) callback();
 
+    }
 
-        audio.volume = Math.max(
-          audio.volume - step,
-          0
-        );
+  }, 100);
 
-
-      } else {
-
-
-        stopAudio(audio);
-
-        clearInterval(fade);
-
-
-      }
-
-
-    }, 100);
-
-  }
-
+}
 
 
 
@@ -163,41 +155,14 @@ if (
   state === 1
 ) {
 
-  fadeOut(audio1);
-
-
-  setTimeout(() => {
+  fadeOut(audio1, 3000, () => {
 
     audio2.currentTime = 0;
     audio2.volume = 0;
 
-    audio2.play()
-      .then(() => {
+    fadeIn(audio2);
 
-        const fade = setInterval(() => {
-
-          if (audio2.volume < 1) {
-
-            audio2.volume = Math.min(
-              audio2.volume + 0.033,
-              1
-            );
-
-          } else {
-
-            clearInterval(fade);
-
-          }
-
-        }, 100);
-
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
-
-  }, 3000);
+  });
 
 
   state = 2;
