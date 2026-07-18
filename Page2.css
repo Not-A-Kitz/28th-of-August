@@ -58,7 +58,6 @@ html, body {
   pointer-events: none;
 }
 
-
 #left-decoration{
     position: absolute;
     left: 30px;
@@ -120,7 +119,7 @@ html, body {
 }
 
 
-/* Petit message au survol */
+
 #open-twitter::after {
   content: "Open Twitter";
 
