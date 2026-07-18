@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let audioUnlocked = false;
 
 
-  // Débloque l'audio sur mobile après une vraie interaction
+
   function unlockAudio() {
 
     if (audioUnlocked) return;
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     audioUnlocked = true;
+
   }
 
 
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     audio.play().catch(() => {});
 
 
-    const step = 1 / (duration / 100);
+    const step = 100 / duration;
 
 
     const fade = setInterval(() => {
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function fadeOut(audio, duration = 3000) {
 
-    const step = 1 / (duration / 100);
+    const step = 100 / duration;
 
 
     const fade = setInterval(() => {
@@ -121,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
       if (
         entry.target.id === "trigger-2" &&
         state === 1
@@ -131,11 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
         fadeOut(audio1);
 
 
+  
         setTimeout(() => {
 
           fadeIn(audio2);
 
-        }, 1500);
+        }, 3000);
 
 
         state = 2;
@@ -154,6 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (trigger1) observer.observe(trigger1);
   if (trigger2) observer.observe(trigger2);
+
+
+
 
 
 
@@ -191,8 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
   const prevPage = document.getElementById("prev-page");
-  const nextPage = document.getElementById("next-page");
 
 
   if (prevPage) {
@@ -204,7 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   }
-
 
 
 });
