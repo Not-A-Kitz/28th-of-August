@@ -59,6 +59,29 @@ html, body {
   pointer-events: none;
 }
 
+#next-page {
+  position: fixed;
+  bottom: 20px;
+  left: 1400px;
+
+  cursor: pointer;
+
+  z-index: 9999; 
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+#next-page img {
+  width: 60px;
+  height: auto;
+  display: block;
+
+  pointer-events: none;
+}
+
 #trigger-2 {
   height: 50px;
 }
@@ -88,80 +111,6 @@ html, body {
   display: inline-block;
 }
 
-#open-twitter {
-  display: flex;
-
-  width: fit-content;
-  height: fit-content;
-
-  margin: 20px auto;
-
-  cursor: pointer;
-}
-
-
-#open-twitter {
-  display: flex;
-
-  width: fit-content;
-  height: fit-content;
-
-  margin: 20px auto;
-
-  cursor: pointer;
-
-  position: relative;
-}
-
-
-#open-twitter img {
-  width: 60px;
-  height: auto;
-
-  display: block;
-
-  transition: transform 0.2s ease;
-}
-
-
-#open-twitter:hover img {
-  transform: scale(1.1);
-}
-
-
-
-#open-twitter::after {
-  content: "Open Twitter";
-
-  position: absolute;
-
-  left: 50%;
-  top: 110%;
-
-  transform: translateX(-50%);
-
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-
-  padding: 6px 12px;
-
-  border-radius: 8px;
-
-  font-size: 14px;
-  font-family: Arial, sans-serif;
-
-  white-space: nowrap;
-
-  opacity: 0;
-  pointer-events: none;
-
-  transition: opacity 0.2s ease;
-}
-
-
-#open-twitter:hover::after {
-  opacity: 1;
-}
 
 #prev-page:hover img {
   transform: scale(1.15);
@@ -170,3 +119,12 @@ html, body {
 #prev-page img {
   transition: transform 0.2s ease;
 }
+
+#next-page:hover img {
+  transform: scale(1.15);
+}
+
+#next-page img {
+  transition: transform 0.2s ease;
+}
+

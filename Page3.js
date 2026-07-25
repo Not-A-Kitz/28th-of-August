@@ -3,79 +3,64 @@ document.addEventListener("DOMContentLoaded", () => {
   const audio = document.getElementById("GODDESS");
   const trigger = document.getElementById("trigger-2");
 
+  const nextPage = document.getElementById("next-page");
+  const prevPage = document.getElementById("prev-page");
+
   let started = false;
-  let audioUnlocked = false;
 
 
-
-  function unlockAudio() {
-
-    if (audioUnlocked) return;
-
-    audio.volume = 0;
-
-    audio.play()
-      .then(() => {
-
-        audio.pause();
-        audio.currentTime = 0;
-
-        audioUnlocked = true;
-
-      })
-      .catch(() => {
-
-      });
-
-  }
-
-
-
-  document.addEventListener("touchstart", unlockAudio, { once: true });
-  document.addEventListener("click", unlockAudio, { once: true });
-
-
+ 
 
   function fadeIn(audio, duration = 3000) {
 
+    if (!audio) return;
+
+
+    audio.pause();
     audio.currentTime = 0;
     audio.volume = 0;
 
+
+  
     const playPromise = audio.play();
 
 
     if (playPromise !== undefined) {
 
-      playPromise.then(() => {
+      playPromise
+        .then(() => {
+
+      
+
+          const step = 1 / (duration / 100);
 
 
-        const step = 1 / (duration / 100);
+          const fade = setInterval(() => {
 
+            if (audio.volume < 1) {
 
-        const fade = setInterval(() => {
+              audio.volume = Math.min(
+                audio.volume + step,
+                1
+              );
 
+            } else {
 
-          if (audio.volume < 1) {
+              clearInterval(fade);
 
-            audio.volume = Math.min(
-              audio.volume + step,
-              1
-            );
+            }
 
-          } else {
+          }, 100);
 
-            clearInterval(fade);
+        })
+        .catch(error => {
 
-          }
+          console.log(
+            "La lecture automatique de l'audio a été bloquée par le navigateur.",
+            error
+          );
 
-
-        }, 100);
-
-
-
-      }).catch(() => {
-
-      });
+        });
 
     }
 
@@ -84,44 +69,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-  const observer = new IntersectionObserver((entries) => {
-
-
-    entries.forEach(entry => {
-
-
-      if (!entry.isIntersecting) return;
-
-
-      if (
-        entry.target.id === "trigger-2" &&
-        !started
-      ) {
-
-
-        fadeIn(audio);
-
-        started = true;
-
-
-      }
-
-
-    });
-
-
-  }, {
-
-    threshold: 0.3
-
-  });
-
-
-
-
-
   if (trigger) {
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach(entry => {
+
+     
+          if (!entry.isIntersecting) return;
+
+
+    
+
+          if (!started) {
+
+            fadeIn(audio);
+
+            started = true;
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.3
+      }
+    );
+
 
     observer.observe(trigger);
 
@@ -130,57 +106,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+  if (nextPage) {
 
-  const twitterButton = document.getElementById("open-twitter");
+    nextPage.addEventListener("click", () => {
 
-
-  if (twitterButton) {
-
-
-    twitterButton.addEventListener("click", () => {
-
-
-      const isMobile =
-        /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-
-
-      if (isMobile) {
-
-        window.location.href = "TwitterMobilePop.html";
-
-      } else {
-
-        window.location.href = "TwitterDesktopPop.html";
-
-      }
-
+      window.location.href = "Page4.html";
 
     });
 
-
   }
 
-
-
-
-
-  const prevPage = document.getElementById("prev-page");
 
 
   if (prevPage) {
 
-
     prevPage.addEventListener("click", () => {
-
 
       window.location.href = "Page2.html";
 
-
     });
 
-
   }
-
 
 });
