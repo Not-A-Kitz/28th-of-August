@@ -1,158 +1,110 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const audio = document.getElementById("ALLWOUNDUP");
   const trigger = document.getElementById("trigger-1");
 
   let started = false;
-  let audioUnlocked = false;
+  let fadeInterval = null;
 
+  function fadeIn() {
 
+    if (!audio || started) return;
 
-  function unlockAudio() {
-
-    if (audioUnlocked || !audio) return;
-
-    audio.volume = 0;
-
-    audio.play()
-      .then(() => {
-
-        audio.pause();
-        audio.currentTime = 0;
-
-        audioUnlocked = true;
-
-      })
-      .catch(() => {});
-
-  }
-
-
-
-  document.addEventListener("touchstart", unlockAudio, { once: true });
-  document.addEventListener("click", unlockAudio, { once: true });
-
-
-
-
-  function fadeIn(audio, duration = 3000) {
-
-    if (!audio) return;
+    started = true;
 
     audio.currentTime = 0;
     audio.volume = 0;
 
-    audio.play().catch(() => {});
+    const playPromise = audio.play();
 
+    if (playPromise !== undefined) {
 
-    const step = 1 / (duration / 100);
+      playPromise
+        .then(() => {
 
+          let volume = 0;
 
-    const fade = setInterval(() => {
+          fadeInterval = setInterval(() => {
 
-      if (audio.volume < 1) {
+            volume += 0.033;
 
-        audio.volume = Math.min(
-          audio.volume + step,
-          1
-        );
+            if (volume >= 1) {
 
-      } else {
+              volume = 1;
+              clearInterval(fadeInterval);
 
-        clearInterval(fade);
+            }
 
-      }
+            audio.volume = volume;
 
-    }, 100);
+          }, 100);
+
+        })
+        .catch(() => {
+
+          started = false;
+
+        });
+
+    }
 
   }
-
-
-
-
-  const observer = new IntersectionObserver((entries) => {
-
-
-    entries.forEach(entry => {
-
-
-      if (!entry.isIntersecting) return;
-
-
-
-      if (
-        entry.target.id === "trigger-1" &&
-        !started
-      ) {
-
-        fadeIn(audio);
-
-        started = true;
-
-      }
-
-
-    });
-
-
-  }, {
-
-    threshold: 0.3
-
-  });
-
 
 
   if (trigger) {
-    observer.observe(trigger);
-  }
 
+    const observer = new IntersectionObserver((entries) => {
 
+      entries.forEach(entry => {
 
+        if (!entry.isIntersecting) return;
 
-  const twitterButton = document.getElementById("open-twitter");
+        fadeIn();
 
+      });
 
-  if (twitterButton) {
+    }, {
 
-    twitterButton.addEventListener("click", () => {
-
-
-      const isMobile =
-        /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-
-
-      if (isMobile) {
-
-        window.location.href = "TwitterMobile.html";
-
-      } else {
-
-        window.location.href = "TwitterDesktop.html";
-
-      }
-
+      threshold: 0.3
 
     });
 
+
+    observer.observe(trigger);
+
   }
 
 
-
-
-  const nextPage = document.getElementById("next-page");
+  const nextPage =
+    document.getElementById("next-page");
 
 
   if (nextPage) {
 
     nextPage.addEventListener("click", () => {
 
-      window.location.href = "Page3.html";
+      window.location.href =
+        "Page3.html";
 
     });
 
   }
 
+
+  const prevPage =
+    document.getElementById("prev-page");
+
+
+  if (prevPage) {
+
+    prevPage.addEventListener("click", () => {
+
+      window.location.href =
+        "Page1.html";
+
+    });
+
+  }
 
 });
