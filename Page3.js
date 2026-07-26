@@ -6,14 +6,95 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextPage = document.getElementById("next-page");
   const prevPage = document.getElementById("prev-page");
 
+  let audioUnlocked = false;
+  let triggerReached = false;
   let started = false;
 
 
- 
+  /*
+  ========================================
+  DÉVERROUILLAGE DE L'AUDIO
+  ========================================
+  */
+
+  function unlockAudio() {
+
+    if (audioUnlocked || !audio) return;
+
+    // On met le son à zéro temporairement
+    audio.volume = 0;
+
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+
+      playPromise
+        .then(() => {
+
+          // Le navigateur autorise maintenant l'audio
+          audio.pause();
+          audio.currentTime = 0;
+          audio.volume = 1;
+
+          audioUnlocked = true;
+
+
+          // Si le trigger a déjà été atteint,
+          // on lance la musique maintenant
+          if (triggerReached && !started) {
+
+            fadeIn(audio);
+            started = true;
+
+          }
+
+        })
+        .catch(() => {
+
+          // Le navigateur n'a pas autorisé l'audio
+          audioUnlocked = false;
+
+        });
+
+    }
+
+  }
+
+
+  /*
+  ========================================
+  INTERACTION UTILISATEUR
+  ========================================
+  */
+
+  document.addEventListener(
+    "click",
+    unlockAudio,
+    { once: true }
+  );
+
+  document.addEventListener(
+    "touchstart",
+    unlockAudio,
+    { once: true, passive: true }
+  );
+
+  document.addEventListener(
+    "keydown",
+    unlockAudio,
+    { once: true }
+  );
+
+
+  /*
+  ========================================
+  FADE-IN DE LA MUSIQUE
+  ========================================
+  */
 
   function fadeIn(audio, duration = 3000) {
 
-    if (!audio) return;
+    if (!audio || started) return;
 
 
     audio.pause();
@@ -21,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
     audio.volume = 0;
 
 
-  
     const playPromise = audio.play();
 
 
@@ -29,8 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       playPromise
         .then(() => {
-
-      
 
           const step = 1 / (duration / 100);
 
@@ -56,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => {
 
           console.log(
-            "La lecture automatique de l'audio a été bloquée par le navigateur.",
+            "Impossible de lancer la musique :",
             error
           );
 
@@ -67,7 +145,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-
+  /*
+  ========================================
+  TRIGGER DE LA MUSIQUE
+  ========================================
+  */
 
   if (trigger) {
 
@@ -76,13 +158,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         entries.forEach(entry => {
 
-     
           if (!entry.isIntersecting) return;
 
 
-    
+          // Le trigger est visible
+          triggerReached = true;
 
-          if (!started) {
+
+          // Si l'audio est déjà déverrouillé,
+          // on peut lancer la musique
+          if (
+            audioUnlocked &&
+            !started
+          ) {
 
             fadeIn(audio);
 
@@ -104,7 +192,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-
+  /*
+  ========================================
+  PAGE SUIVANTE
+  ========================================
+  */
 
   if (nextPage) {
 
@@ -117,6 +209,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+  /*
+  ========================================
+  PAGE PRÉCÉDENTE
+  ========================================
+  */
 
   if (prevPage) {
 

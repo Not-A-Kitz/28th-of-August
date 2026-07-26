@@ -112,19 +112,57 @@ html, body {
 }
 
 
-#prev-page:hover img {
-  transform: scale(1.15);
-}
+#prev-page {
+  position: fixed;
 
-#prev-page img {
+  bottom: 20px;
+  left: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  opacity: 1;
+  pointer-events: auto;
+
   transition: transform 0.2s ease;
 }
 
+
+#next-page {
+  position: fixed;
+
+  bottom: 20px;
+  right: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+
+
+
+#prev-page img,
+#next-page img {
+  width: 60px;
+  height: auto;
+
+  display: block;
+
+  pointer-events: none;
+
+  transition: transform 0.2s ease;
+}
+
+
+
+#prev-page:hover img,
 #next-page:hover img {
   transform: scale(1.15);
 }
-
-#next-page img {
-  transition: transform 0.2s ease;
-}
-
