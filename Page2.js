@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     prevPage.addEventListener("click", () => {
 
       window.location.href =
-        "Page1.html";
+        "Index.html";
 
     });
 
