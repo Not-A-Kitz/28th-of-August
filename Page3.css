@@ -740,3 +740,10 @@ html, body {
 #next-page:hover img {
   transform: scale(1.15);
 }
+
+#next-page,
+#prev-page {
+
+    z-index:100000;
+
+}
