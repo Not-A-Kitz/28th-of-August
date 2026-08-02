@@ -247,7 +247,38 @@ document.addEventListener("DOMContentLoaded", () => {
       playButton.style.display = "block";
 
     });
+video.addEventListener("play", () => {
 
+    if (audio) {
+
+        audio.volume = 0.15;
+
+    }
+
+});
+
+
+video.addEventListener("pause", () => {
+
+    if (audio) {
+
+        audio.volume = 1;
+
+    }
+
+});
+
+
+video.addEventListener("ended", () => {
+
+    if (audio) {
+
+        audio.volume = 1;
+
+    }
+
+});
+    
   }
   
   });
