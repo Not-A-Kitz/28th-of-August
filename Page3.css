@@ -704,26 +704,30 @@ html, body {
 }
 
 
-#next-page {
-  position: absolute
+#next-page{
 
-  bottom: 20px;
-  right: 20px;
+    position:fixed;
 
-  cursor: pointer;
+    bottom:20px;
 
-  z-index: 9999;
+    left:calc(100vw - 80px);
 
-  opacity: 1;
-  pointer-events: auto;
+    width:60px;
 
-  transition: transform 0.2s ease;
+    height:60px;
+
+    z-index:100000;
+
 }
 
+#next-page img{
 
+    width:100%;
+    height:auto;
 
-#prev-page img,
-#next-page img {
+}
+
+#prev-page img {
   width: 60px;
   height: auto;
 
