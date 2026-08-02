@@ -207,6 +207,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (video && playButton && videoMessage) {
 
+        video.muted = true;
+    
     function playVideo() {
 
       video.play();
