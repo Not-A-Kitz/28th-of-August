@@ -747,3 +747,9 @@ html, body {
     z-index:100000;
 
 }
+
+#next-page {
+    background: red !important;
+    width: 100px !important;
+    height: 100px !important;
+}
