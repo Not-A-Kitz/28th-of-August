@@ -720,12 +720,7 @@ html, body {
 
 }
 
-#next-page img{
 
-    width:100%;
-    height:auto;
-
-}
 
 #prev-page img {
   width: 60px;
@@ -753,7 +748,6 @@ html, body {
 }
 
 #next-page {
-    background: red !important;
     width: 100px !important;
     height: 100px !important;
 }
