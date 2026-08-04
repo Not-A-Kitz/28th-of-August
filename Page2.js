@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const audio = document.getElementById("ALLWOUNDUP");
-  const trigger = document.getElementById("trigger-1");
+
 
   let started = false;
   let fadeInterval = null;
@@ -52,29 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  if (trigger) {
-
-    const observer = new IntersectionObserver((entries) => {
-
-      entries.forEach(entry => {
-
-        if (!entry.isIntersecting) return;
-
-        fadeIn();
-
-      });
-
-    }, {
-
-      threshold: 0.3
-
-    });
-
-
-    observer.observe(trigger);
-
-  }
-
 
   const nextPage =
     document.getElementById("next-page");
@@ -107,4 +84,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
+const phoneOff = document.getElementById("phone-off");
+const phoneOn = document.getElementById("phone-on");
+
+if (phoneOff && phoneOn) {
+
+    phoneOff.addEventListener("click", () => {
+
+        phoneOff.classList.add("clicked");
+
+        setTimeout(() => {
+
+            phoneOff.style.display = "none";
+
+            phoneOn.style.display = "block";
+
+            fadeIn();
+
+        }, 250);
+
+    }, { once:true });
+}
+  
 });

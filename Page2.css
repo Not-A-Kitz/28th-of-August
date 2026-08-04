@@ -125,3 +125,84 @@ html, body {
 #next-page img {
   transition: transform 0.2s ease;
 }
+
+
+
+
+#music-scene{
+
+    position:relative;
+
+    width:650px;
+
+    margin:80px auto;
+
+}
+
+#room{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:12px;
+
+}
+
+#phone-off,
+#phone-on{
+
+    position:absolute;
+
+    width:133px;
+
+    left:59%;
+    top:82%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(19deg);
+
+}
+
+#phone-on{
+
+    display:none;
+
+}
+
+
+
+#phone-off{
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+
+}
+
+
+#phone-off:hover{
+
+    transform:
+        translate(-50%,-50%)
+        rotate(19deg)
+        scale(1.08);
+
+    filter:
+        drop-shadow(0 0 14px rgba(255,255,255,.6));
+
+}
+
+#phone-off.clicked{
+
+    transform:
+        translate(-50%,-50%)
+        rotate(19deg)
+        scale(1);
+
+    filter:none;
+
+}
