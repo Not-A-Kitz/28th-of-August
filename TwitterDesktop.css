@@ -4,7 +4,7 @@
 
 
 .twitter-frame {
-  width: auto;   /* IMPORTANT : pas de 60% */
+  width: auto;   
   display: block;
 }
 
@@ -14,7 +14,7 @@
   top: 0px;
   left: 480px;
   width: 35%;
-  */
+  
 }
 
 
@@ -155,4 +155,33 @@
 
   display: none;
   z-index: 101;
+}
+
+
+#new-tweets-button {
+  position: fixed;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: none;
+
+  background: #1d9bf0;
+  color: white;
+
+  padding: 12px 24px;
+
+  border-radius: 20px;
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+
+  text-decoration: none;
+
+  z-index: 10000;
+
+  cursor: pointer;
 }

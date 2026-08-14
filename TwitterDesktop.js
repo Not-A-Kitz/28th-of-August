@@ -37,16 +37,28 @@ const trigger = document.querySelector(".reply-trigger");
 const video = document.getElementById("reply-video");
 const finalImg = document.getElementById("reply-final");
 const secret = document.getElementById("secret");
+const newTweetsButton = document.getElementById("new-tweets-button");
+
 
 trigger.addEventListener("click", () => {
 
   video.style.display = "block";
-  video.play();
+  video.currentTime = 0;
+
+  const playPromise = video.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(error => {
+      console.log("La vidéo n'a pas pu démarrer :", error);
+    });
+  }
+
 
   video.onended = () => {
 
     video.style.display = "none";
     finalImg.style.display = "block";
+
 
     setTimeout(() => {
 
@@ -57,12 +69,25 @@ trigger.addEventListener("click", () => {
         secret.style.animation = "";
       }, 600);
 
+
       setTimeout(() => {
+
         secret.style.opacity = "0";
-        secret.style.transform = "translateX(-50%) translateY(-20px) scale(0.9)";
+        secret.style.transform =
+          "translateX(-50%) translateY(-20px) scale(0.9)";
+
       }, 3000);
 
     }, 300);
+
+
+    setTimeout(() => {
+
+      if (newTweetsButton) {
+        newTweetsButton.style.display = "block";
+      }
+
+    }, 3000);
 
   };
 

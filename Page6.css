@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap');
+
+body{
+  margin:0;
+  font-family: "Grenze Gotisch", serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height:1.8;
+
+  background:#780606;
+
+  min-height: 100vh;  
+  display: flex;       
+  flex-direction: column; 
+}
+
+html, body {
+  height: 100%;
+}
+
+.text-section{
+  max-width:800px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.spacer {
+  height: 200px;
+  position: relative;
+}
+
+#prev-page {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999; 
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+#prev-page img {
+  width: 60px;
+  height: auto;
+  display: block;
+
+  pointer-events: none;
+}
+
+#left-decoration {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 180px;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.ending-image{
+  text-align: center;
+  margin-top: 80px;
+}
+
+#Down{
+  width: 300px;
+  display: inline-block;
+}
+
+
+
+
+
+
+#next-page {
+  position: fixed;
+
+  bottom: 20px;
+  right: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+
+#next-page img {
+  width: 60px;
+  height: auto;
+
+  display: block;
+
+  pointer-events: none;
+}
+
+#prev-page:hover img,
+#next-page:hover img {
+  transform: scale(1.15);
+}
+
+
+#prev-page img,
+#next-page img {
+  transition: transform 0.2s ease;
+}
+
+
+
+
+
+
+
+#music-scene{
+
+    position:relative;
+
+    width:650px;
+
+    margin:80px auto;
+
+}
+
+#room{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:12px;
+
+}
+
+#phone-off,
+#phone-on{
+
+    position:absolute;
+
+    width:163px;
+
+    left:45%;
+    top:61%;
+
+    transform:
+        translate(-50%,-50%);
+
+}
+
+#phone-on{
+
+    display:none;
+
+}
+
+#phone-off{
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+
+}
+
+#phone-off:hover{
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.06);
+
+    filter:
+        drop-shadow(0 0 14px rgba(255,255,255,.6));
+
+}
+
+#phone-off.clicked{
+
+    transform:
+        translate(-50%,-50%)
+        scale(0.96);
+
+    filter:none;
+
+}
+
+
+
+
+#tv {
+    cursor: pointer;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+#tv:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.6));
+}
+
+#tv.clicked {
+    cursor: default;
+    transform: scale(1);
+    filter: none;
+}
+
+
+
+
+.tv {
+  position: relative;
+  width: 500px;
+  margin: auto;
+}
+
+
+#screen-black,
+#static {
+  position: absolute;
+  left: 12%;
+  top: 22%;
+  width: 75%;
+  height: 53%;
+}
+
+#memory-video {
+  position: absolute;
+  left: 15%;
+  top: 18%;
+  width: 74%;
+  height: 50%;
+}
+
+
+#screen-black {
+  background: black;
+  z-index: 1;
+  opacity: 1;
+}
+
+
+#memory-video {
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 1s ease;
+
+  object-fit: cover; 
+}
+
+
+#static {
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+
+#tv-frame {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 4;
+}
