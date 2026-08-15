@@ -1,0 +1,211 @@
+.scene {
+  position: relative;
+}
+
+
+.twitter-frame {
+  width: auto;   
+  display: block;
+}
+
+.background {
+  position: absolute;
+
+  top: 0px;
+  left: 480px;
+  width: 35%;
+  
+}
+
+
+
+
+.like {
+  position: absolute;
+
+  left: 723px;
+  top: 587px;
+
+  width: 50px;
+  cursor: pointer;
+
+  transform-origin: center;
+}
+
+.CompleteLike {
+  display: none;
+
+  position: absolute;
+
+  left: 720px;   
+  top: 584px;   
+
+  width: 50px;
+  cursor: pointer;
+
+  transform-origin: center;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pop {
+  animation: popIn 0.4s ease;
+}
+
+
+
+
+
+
+#secret {
+  position: fixed;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%) translateY(-20px) scale(0.9);
+
+  opacity: 0;
+
+  background: #1d9bf0;
+  color: white;
+
+  padding: 12px 24px;
+
+  border-radius: 20px;
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  z-index: 10000;
+
+  cursor: pointer;
+}
+
+@keyframes notifBounce {
+  0% {
+    transform: translateX(-50%) translateY(-30px) scale(0.9);
+  }
+ 
+  60% {
+    transform: translateX(-50%) translateY(5px) scale(1.05);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+
+
+
+#reply-video {
+  position: absolute;
+
+  top: 1000px;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 490px;
+  height: auto;
+
+  object-fit: contain;
+
+  display: none;
+  z-index: 100;
+}
+
+#reply-final{
+  position: absolute;
+
+  top: 80%;
+  left: 49%;
+
+  transform: translate(-50%, -50%);
+
+  width: 522px;
+  height: auto;
+
+  object-fit: contain;
+
+  display: none;
+  z-index: 101;
+}
+
+
+#new-tweets-button {
+  position: fixed;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: none;
+
+  background: #1d9bf0;
+  color: white;
+
+  padding: 12px 24px;
+
+  border-radius: 20px;
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+
+  text-decoration: none;
+
+  z-index: 10000;
+
+  cursor: pointer;
+}
+
+
+#reply-final {
+  opacity: 0;
+}
+
+#reply-final.reply-fade-in {
+  animation: replyFadeIn 1.2s ease forwards;
+}
+
+@keyframes replyFadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+#reply-final {
+  display: block !important;
+}
