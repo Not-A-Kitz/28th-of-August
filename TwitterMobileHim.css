@@ -1,0 +1,221 @@
+.scene {
+  position: relative;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.twitter {
+  position: relative;
+}
+
+
+.twitter-frame {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.background {
+  width: 98%;
+  margin: 10px auto 0;
+  display: block;
+}
+
+
+
+
+.like,
+.CompleteLike {
+  position: absolute;
+
+  width: 12%;
+  left: 48%;
+  top: 98%;
+
+  transform: translate(-50%, -50%);
+  z-index: 5;
+
+  cursor: pointer;
+}
+
+.CompleteLike {
+  display: none;
+}
+
+
+@keyframes popIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+
+.like.pop,
+.CompleteLike.pop {
+  animation: popIn 0.4s ease;
+}
+
+
+
+
+#reply-final {
+  position: absolute;
+
+  width: 97%;
+  left: 50%;
+  top: 110%;
+
+  transform: translate(-50%, -50%);
+
+  display: none;
+  z-index: 101;
+
+  opacity: 0;
+}
+
+
+#reply-final.reply-fade-in {
+  animation: replyFadeIn 1.2s ease forwards;
+}
+
+
+@keyframes replyFadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+
+
+#reply-video {
+  position: absolute;
+
+  width: 92%;
+  left: 50%;
+  top: 155%;
+
+  transform: translate(-50%, -50%);
+
+  display: none;
+  z-index: 100;
+
+  object-fit: contain;
+}
+
+
+
+
+#secret {
+  position: fixed;
+
+  top: 20px;
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    translateY(-20px)
+    scale(0.9);
+
+  opacity: 0;
+
+  background: #1d9bf0;
+  color: white;
+
+  padding: 12px 24px;
+
+  border-radius: 20px;
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  z-index: 9999;
+
+  cursor: pointer;
+}
+
+
+@keyframes notifBounce {
+
+  0% {
+    transform:
+      translateX(-50%)
+      translateY(-30px)
+      scale(0.9);
+  }
+
+  60% {
+    transform:
+      translateX(-50%)
+      translateY(5px)
+      scale(1.05);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+
+
+#new-tweets-button {
+  position: fixed;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: none;
+
+  background: #1d9bf0;
+  color: white;
+
+  padding: 12px 24px;
+
+  border-radius: 20px;
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+
+  text-decoration: none;
+
+  z-index: 10000;
+
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
+}
