@@ -152,8 +152,8 @@ html, body {
 
 }
 
-#phone-off,
-#phone-on{
+#jukebox-off,
+#jukebox-on{
 
     position:absolute;
 
@@ -167,13 +167,13 @@ html, body {
 
 }
 
-#phone-on{
+#jukebox-on{
 
     display:none;
 
 }
 
-#phone-off{
+#jukebox-off{
 
     cursor:pointer;
 
@@ -183,7 +183,7 @@ html, body {
 
 }
 
-#phone-off:hover{
+#jukebox-off:hover{
 
     transform:
         translate(-50%,-50%)
@@ -194,7 +194,7 @@ html, body {
 
 }
 
-#phone-off.clicked{
+#jukebox-off.clicked{
 
     transform:
         translate(-50%,-50%)

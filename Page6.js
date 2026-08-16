@@ -83,20 +83,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-const phoneOff = document.getElementById("phone-off");
-const phoneOn = document.getElementById("phone-on");
+const jukeboxOff = document.getElementById("jukebox-off");
+const jukeboxOn = document.getElementById("jukebox-on");
 
-if (phoneOff && phoneOn) {
+if (jukeboxOff && jukeboxOn) {
 
-    phoneOff.addEventListener("click", () => {
+    jukeboxOff.addEventListener("click", () => {
 
-        phoneOff.classList.add("clicked");
+        jukeboxOff.classList.add("clicked");
 
         setTimeout(() => {
 
-            phoneOff.style.display = "none";
+            jukeboxOff.style.display = "none";
 
-            phoneOn.style.display = "block";
+            jukeboxOn.style.display = "block";
 
             fadeIn();
 
