@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap');
+
+body{
+  margin:0;
+  font-family: "Grenze Gotisch", serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height:1.8;
+
+  background:#780606;
+
+  min-height: 100vh;  
+  display: flex;       
+  flex-direction: column; 
+}
+
+html, body {
+  height: 100%;
+}
+
+.text-section{
+  max-width:800px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.spacer {
+  height: 200px;
+  position: relative;
+}
+
+#prev-page {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999; 
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+#prev-page img {
+  width: 60px;
+  height: auto;
+  display: block;
+
+  pointer-events: none;
+}
+
+#left-decoration {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 180px;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.ending-image{
+  text-align: center;
+  margin-top: 80px;
+}
+
+#Down{
+  width: 300px;
+  display: inline-block;
+}
+
+
+
+
+
+
+#next-page {
+  position: fixed;
+
+  bottom: 20px;
+  right: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+
+#next-page img {
+  width: 60px;
+  height: auto;
+
+  display: block;
+
+  pointer-events: none;
+}
+
+#prev-page:hover img,
+#next-page:hover img {
+  transform: scale(1.15);
+}
+
+
+#prev-page img,
+#next-page img {
+  transition: transform 0.2s ease;
+}
+
+
+
+
+
+
+#music-scene {
+  position: relative;
+
+  width: 650px;
+
+  margin: 80px auto;
+}
+
+
+#roomW,
+#roomS {
+  width: 100%;
+  display: block;
+}
+
+
+#roomS {
+  display: none;
+}
+
+
+
+
+#Windows {
+  position: absolute;
+
+  width: 650px;
+
+  left: 50%;
+  top: 33%;
+
+  transform: translate(-50%, -50%);
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+
+#Windows:hover {
+  transform:
+    translate(-50%, -50%)
+    scale(1.04);
+
+  filter:
+    drop-shadow(0 0 12px rgba(255,255,255,0.5));
+}
+
+
+
+
+#Windows.clicked {
+  animation: windowBounce 0.4s ease;
+}
+
+
+@keyframes windowBounce {
+
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  35% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  65% {
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+}
