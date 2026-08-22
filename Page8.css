@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap');
+
+body{
+  margin:0;
+  font-family: "Grenze Gotisch", serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height:1.8;
+
+  background:#780606;
+
+  min-height: 100vh;  
+  display: flex;       
+  flex-direction: column; 
+}
+
+html, body {
+  height: 100%;
+}
+
+.text-section{
+  max-width:800px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.spacer {
+  height: 200px;
+  position: relative;
+}
+
+#prev-page {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999; 
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+#prev-page img {
+  width: 60px;
+  height: auto;
+  display: block;
+
+  pointer-events: none;
+}
+
+#left-decoration {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 180px;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.ending-image{
+  text-align: center;
+  margin-top: 80px;
+}
+
+#Down{
+  width: 300px;
+  display: inline-block;
+}
+
+
+
+
+
+
+#next-page {
+  position: fixed;
+
+  bottom: 20px;
+  right: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+
+#next-page img {
+  width: 60px;
+  height: auto;
+
+  display: block;
+
+  pointer-events: none;
+}
+
+#prev-page:hover img,
+#next-page:hover img {
+  transform: scale(1.15);
+}
+
+
+#prev-page img,
+#next-page img {
+  transition: transform 0.2s ease;
+}
+
+
+
+
+
+#music-scene{
+
+    position:relative;
+
+    width:650px;
+
+    margin:80px auto;
+
+}
+
+#wood{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:12px;
+
+}
+#candy-container {
+  position: absolute;
+
+  left: 39%;
+  top: 8%;
+
+  width: 400px;
+
+  transform: translate(-50%, -50%);
+
+  cursor: pointer;
+
+  z-index: 5;
+}
+
+
+
+
+#candies {
+  position: relative;
+
+  width: 100%;
+  display: block;
+
+  z-index: 1;
+
+  transition: transform 0.25s ease;
+
+  --bite-mask: none;
+
+  -webkit-mask-image: var(--bite-mask);
+  mask-image: var(--bite-mask);
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+  -webkit-mask: url(#bite-mask);
+  mask: url(#bite-mask);
+}
+
+
+
+#candy-container.bounce #candies {
+  animation: candyBounce 0.4s ease;
+}
+
+@keyframes candyBounce {
+
+  0% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.06);
+  }
+
+  65% {
+    transform: scale(0.97);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+
+
+#candy-mask-svg {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  left: 0;
+  top: 0;
+
+  pointer-events: none;
+}
+
+
+
+
+#bottle {
+  position: absolute;
+
+  width: 363px;
+
+  left: 70%;
+  top: 5%;
+
+  transform: translate(-50%, -50%);
+  
+  cursor: pointer;
+}
+
+
+#bottle.clicked {
+  animation: bottleBounce 0.4s ease;
+}
+
+
+@keyframes bottleBounce {
+
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  35% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  65% {
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+}
