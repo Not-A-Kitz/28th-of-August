@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap');
+
+body{
+  margin:0;
+  font-family: "Grenze Gotisch", serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height:1.8;
+
+  background:#780606;
+
+  min-height: 100vh;  
+  display: flex;       
+  flex-direction: column; 
+}
+
+html, body {
+  height: 100%;
+}
+
+.text-section{
+  max-width:800px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.spacer {
+  height: 200px;
+  position: relative;
+}
+
+#prev-page {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999; 
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+#prev-page img {
+  width: 60px;
+  height: auto;
+  display: block;
+
+  pointer-events: none;
+}
+
+#left-decoration {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 180px;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.ending-image{
+  text-align: center;
+  margin-top: 80px;
+}
+
+#Down{
+  width: 300px;
+  display: inline-block;
+}
+
+
+
+
+
+
+#next-page {
+  position: fixed;
+
+  bottom: 20px;
+  right: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+
+#next-page img {
+  width: 60px;
+  height: auto;
+
+  display: block;
+
+  pointer-events: none;
+}
+
+#prev-page:hover img,
+#next-page:hover img {
+  transform: scale(1.15);
+}
+
+
+#prev-page img,
+#next-page img {
+  transition: transform 0.2s ease;
+}
+
+
+
+
+
+#music-final{
+
+    position:relative;
+
+    width:650px;
+
+    margin:80px auto;
+
+}
+
+#concert{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:12px;
+
+}
+
+#microphone{
+
+    position:absolute;
+
+    width:433px;
+
+    left:47%;
+    top:72%;
+
+    transform:
+        translate(-50%,-50%)
+
+}
+
+
+
+#microphone{
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+
+}
+
+
+#microphone:hover{
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.08);
+
+    filter:
+        drop-shadow(0 0 14px rgba(255,255,255,.6));
+
+}
+
+#microphone.clicked{
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+
+    filter:none;
+
+}
+
+
+.simple-spacer {
+    height: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#tvscene {
+    position: relative;
+
+    width: 500px;
+    margin: 80px auto;
+
+    cursor: pointer;
+
+    transition: transform 0.25s ease;
+}
+
+
+
+
+#tele {
+    position: absolute;
+
+    left: 12%;
+    top: 22%;
+
+    width: 75%;
+    height: 53%;
+
+    background: black;
+
+    z-index: 1;
+}
+
+
+
+
+#kocmoc {
+    position: absolute;
+
+    left: 15%;
+    top: 18%;
+
+    width: 74%;
+    height: 50%;
+
+    z-index: 2;
+
+    object-fit: cover;
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+
+    pointer-events: none;
+}
+
+
+
+
+#tv {
+    width: 100%;
+
+    display: block;
+
+    position: relative;
+
+    z-index: 4;
+
+    pointer-events: none;
+}
+
+
+
+
+#tvscene:hover {
+    transform: scale(1.03);
+}
+
+
+
+#tv-spoiler {
+    position: absolute;
+
+    left: 50%;
+    top: 8%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.95);
+
+    z-index: 10;
+
+    color: white;
+
+    font-family: sans-serif;
+    font-size: 16px;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+#tvscene:hover #tv-spoiler {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+
+
+#tvscene.clicked {
+    cursor: default;
+
+    transform: none;
+}
+
+
+
+
+#tvscene.clicked #tv-spoiler {
+    opacity: 0;
+}
+
+
+
+
+#tvscene.video-playing #kocmoc {
+    opacity: 1;
+}
