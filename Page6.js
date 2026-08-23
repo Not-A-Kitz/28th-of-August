@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     prevPage.addEventListener("click", () => {
 
       window.location.href =
-        "Page5.html";
+        "Page4.html";
 
     });
 
