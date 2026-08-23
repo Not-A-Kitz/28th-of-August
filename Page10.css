@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&display=swap');
+
+body{
+  margin:0;
+  font-family: "Grenze Gotisch", serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height:1.8;
+
+  background:#780606;
+
+  min-height: 100vh;  
+  display: flex;       
+  flex-direction: column; 
+}
+
+html, body {
+  height: 100%;
+}
+
+.text-section{
+  max-width:800px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.spacer {
+  height: 200px;
+  position: relative;
+}
+
+#prev-page {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999; 
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+#prev-page img {
+  width: 60px;
+  height: auto;
+  display: block;
+
+  pointer-events: none;
+}
+
+#left-decoration {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 180px;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.ending-image{
+  text-align: center;
+  margin-top: 80px;
+}
+
+#Down{
+  width: 300px;
+  display: inline-block;
+}
+
+
+
+
+
+
+#next-page {
+  position: fixed;
+
+  bottom: 20px;
+  right: 20px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: transform 0.2s ease;
+}
+
+
+#next-page img {
+  width: 60px;
+  height: auto;
+
+  display: block;
+
+  pointer-events: none;
+}
+
+#prev-page:hover img,
+#next-page:hover img {
+  transform: scale(1.15);
+}
+
+
+#prev-page img,
+#next-page img {
+  transition: transform 0.2s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#music-scene {
+    position: relative;
+
+    width: min(480px, 90vw);
+    aspect-ratio: 1 / 1;
+
+    margin: 80px auto;
+}
+
+
+
+
+#DesktopNeutral,
+#AgathaRio {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+#DesktopNeutral {
+    z-index: 1;
+}
+
+
+
+#AgathaRio {
+    z-index: 2;
+
+    display: none;
+}
+
+
+
+
+#Headphones,
+#Screen,
+#Phone {
+    position: absolute;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition: transform 0.25s ease;
+}
+
+
+
+
+#Headphones {
+   
+
+    width: 18%;
+
+    left: 90%;
+    top: 70%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+#Screen {
+  
+
+    width: 40%;
+
+    left: 57%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+#Phone {
+ 
+
+    width: 10%;
+
+    left: 80%;
+    top: 85%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#music-scene.phone-focus #DesktopNeutral {
+    filter: blur(8px);
+    transition: filter 0.5s ease;
+}
+
+
+
+#Phone {
+    z-index: 30;
+}
+
+
+
+
+#PhoneUp {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: auto;
+    height: 88%;
+
+    max-width: 95%;
+    max-height: 95%;
+
+    transform: translate(-50%, -50%);
+
+    display: none;
+
+    z-index: 40;
+
+    object-fit: contain;
+
+    pointer-events: none;
+}
+
+
+
+#music-scene.phone-focus #PhoneUp {
+    display: block;
+
+    animation: phoneFocusIn 0.5s ease;
+}
+
+
+@keyframes phoneFocusIn {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.85);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+
+
+
+#PhoneUp.phone-closing {
+    animation: phoneFocusOut 0.5s ease forwards;
+}
+
+
+@keyframes phoneFocusOut {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.85);
+    }
+}
+
+
+
+
+#stream {
+    position: relative;
+    width: 650px;
+    margin: 80px auto;
+}
+
+#Laptop {
+    width: 100%;
+    display: block;
+}
+
+#willow {
+    position: absolute;
+
+    left: 48%;
+    top: 28%;
+
+    width: 42%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+}
