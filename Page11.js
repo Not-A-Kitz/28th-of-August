@@ -1,4 +1,7 @@
-const prevPage =
+
+
+
+  const prevPage =
     document.getElementById("prev-page");
 
 
@@ -126,3 +129,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+
+
+const bandaid = document.getElementById("bandaid");
+
+if (bandaid) {
+
+    bandaid.addEventListener("click", () => {
+
+        if (bandaid.classList.contains("removing")) {
+            return;
+        }
+
+        bandaid.classList.add("removing");
+
+    });
+
+}
