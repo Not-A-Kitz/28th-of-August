@@ -170,3 +170,87 @@ html, body {
 #prev-page img {
   transition: transform 0.2s ease;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#music{
+
+    position:relative;
+
+    width:650px;
+
+    margin:80px auto;
+
+}
+
+#request{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:12px;
+
+}
+
+#accept{
+
+    position:absolute;
+
+    width:155px;
+
+    left:33%;
+    top:69%;
+
+    transform:
+        translate(-50%,-50%)
+
+}
+
+
+
+#accept{
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+
+}
+
+
+#accept:hover{
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.08);
+
+    filter:
+        drop-shadow(0 0 14px rgba(255,255,255,.6));
+
+}
+
+#accept.clicked{
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+
+    filter:none;
+
+}
