@@ -212,6 +212,57 @@ html, body {
 
 
 
+#discord {
+    position: relative;
+    width: 500px; 
+    margin: 0 auto;
+}
+
+#note {
+    position: relative;
+    width: 100%;
+    display: block;
+    z-index: 1;
+}
+
+#bandaid {
+    position: absolute;
+
+  
+    left: 45%;
+    top: 95%;
+
+    width: 380px;
+
+    transform: translate(-50%, -50%);
+    transform-origin: left center;
+
+    z-index: 2;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.8s cubic-bezier(0.55, 0.1, 0.25, 1),
+        opacity 0.15s ease 0.65s;
+}
+
+
+
+#bandaid.removing {
+    transform:
+        translate(-50%, -50%)
+        perspective(600px)
+        rotateY(-115deg)
+        translateX(-80px)
+        rotateZ(-8deg);
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+
 
 
 
@@ -347,6 +398,12 @@ html, body {
     opacity: 0;
 }
 
+
+
+
+#tvscene.video-playing #kocmoc {
+    opacity: 1;
+}
 
 
 
