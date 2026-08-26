@@ -30,17 +30,34 @@
            
 <div id="candy-container">
 
-  <svg id="candy-mask-svg">
+  <svg id="candy-svg"
+       viewBox="0 0 100 100"
+       preserveAspectRatio="none">
+
     <defs>
       <mask id="bite-mask">
-        <rect width="100%" height="100%" fill="white"></rect>
+        <rect
+          x="0"
+          y="0"
+          width="100"
+          height="100"
+          fill="white">
+        </rect>
       </mask>
     </defs>
-  </svg>
 
-  <img id="candies"
-       src="https://raw.githubusercontent.com/Not-A-Kitz/28th-of-August/refs/heads/main/CandyBowl.png"
-       alt="candies">
+    <image
+      id="candies"
+      href="https://raw.githubusercontent.com/Not-A-Kitz/28th-of-August/refs/heads/main/CandyBowl.png"
+      x="0"
+      y="0"
+      width="100"
+      height="100"
+      preserveAspectRatio="none"
+      mask="url(#bite-mask)">
+    </image>
+
+  </svg>
 
 </div>
            
