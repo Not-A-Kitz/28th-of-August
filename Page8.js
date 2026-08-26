@@ -108,37 +108,34 @@ function updateBites() {
   const numberOfBites =
     Math.min(candyClicks * 2, bites.length);
 
-  
   mask.querySelectorAll(".bite-hole").forEach(hole => {
     hole.remove();
   });
-
 
   for (let i = 0; i < numberOfBites; i++) {
 
     const bite = bites[i];
 
-    const circle =
-      document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "circle"
-      );
+    const circle = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle"
+    );
 
     circle.classList.add("bite-hole");
 
     circle.setAttribute(
       "cx",
-      bite.x + "%"
+      bite.x
     );
 
     circle.setAttribute(
       "cy",
-      bite.y + "%"
+      bite.y
     );
 
     circle.setAttribute(
       "r",
-      bite.size / 2 + "%"
+      bite.size / 2
     );
 
     circle.setAttribute(
