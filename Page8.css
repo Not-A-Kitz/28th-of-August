@@ -164,35 +164,18 @@ html, body {
   z-index: 5;
 }
 
-
-
-
-#candies {
-  position: relative;
-
-  width: 100%;
+#candy-svg {
   display: block;
 
-  z-index: 1;
+  width: 100%;
+  height: 100%;
 
-  transition: transform 0.25s ease;
-
-  --bite-mask: none;
-
-  -webkit-mask-image: var(--bite-mask);
-  mask-image: var(--bite-mask);
-
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-
-  -webkit-mask: url(#bite-mask);
-  mask: url(#bite-mask);
+  overflow: visible;
 }
 
-
+#candies {
+  transition: transform 0.25s ease;
+}
 
 #candy-container.bounce #candies {
   animation: candyBounce 0.4s ease;
@@ -216,21 +199,6 @@ html, body {
     transform: scale(1);
   }
 
-}
-
-
-
-
-#candy-mask-svg {
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-
-  left: 0;
-  top: 0;
-
-  pointer-events: none;
 }
 
 
