@@ -1,122 +1,123 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const audio = document.getElementById("MOZART");
-  const trigger = document.getElementById("trigger-2");
+    const twitterButton = document.getElementById("open-twitter");
 
-  let started = false;
+    if (twitterButton) {
 
-  if (!audio || !trigger) {
-    return;
-  }
+        twitterButton.addEventListener("click", () => {
 
+            const isMobile =
+                /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  function fadeIn(audio, duration = 3000) {
+            if (isMobile) {
 
-    audio.currentTime = 0;
-    audio.volume = 0;
-
-    const playPromise = audio.play();
-
-    if (playPromise !== undefined) {
-
-      playPromise
-        .then(() => {
-
-          const step = 1 / (duration / 100);
-
-          const fade = setInterval(() => {
-
-            if (audio.volume < 1) {
-
-              audio.volume = Math.min(
-                audio.volume + step,
-                1
-              );
+                window.location.href = "TwitterMobilePop.html";
 
             } else {
 
-              clearInterval(fade);
+                window.location.href = "TwitterDesktopPop.html";
 
             }
-
-          }, 100);
-
-        })
-        .catch(() => {
 
         });
 
     }
 
-  }
 
+    const prevPage = document.getElementById("prev-page");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
+    if (prevPage) {
 
-      entries.forEach(entry => {
+        prevPage.addEventListener("click", () => {
 
-        if (!entry.isIntersecting) {
-          return;
-        }
+            window.location.href = "Page3.html";
 
-        if (
-          entry.target === trigger &&
-          !started
-        ) {
+        });
 
-          started = true;
-
-          fadeIn(audio);
-
-        }
-
-      });
-
-    },
-    {
-      threshold: 0.3
     }
-  );
-
-
-  observer.observe(trigger);
-
-
-  const twitterButton = document.getElementById("open-twitter");
-
-  if (twitterButton) {
-
-    twitterButton.addEventListener("click", () => {
-
-      const isMobile =
-        /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-      if (isMobile) {
-
-        window.location.href = "TwitterMobilePop.html";
-
-      } else {
-
-        window.location.href = "TwitterDesktopPop.html";
-
-      }
-
-    });
-
-  }
-
-
-  const prevPage = document.getElementById("prev-page");
-
-  if (prevPage) {
-
-    prevPage.addEventListener("click", () => {
-
-      window.location.href = "Page3.html";
-
-    });
-
-  }
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const audio = document.getElementById("MOZART");
+    const microphone = document.getElementById("accept");
+
+
+    let started = false;
+    let fadeInterval = null;
+
+
+    function fadeIn() {
+
+        if (!audio || started) return;
+
+        started = true;
+
+        audio.currentTime = 0;
+        audio.volume = 0;
+
+        const playPromise = audio.play();
+
+        if (playPromise !== undefined) {
+
+            playPromise
+                .then(() => {
+
+                    let volume = 0;
+
+                    fadeInterval = setInterval(() => {
+
+                        volume += 0.033;
+
+                        if (volume >= 1) {
+
+                            volume = 1;
+                            clearInterval(fadeInterval);
+
+                        }
+
+                        audio.volume = volume;
+
+                    }, 100);
+
+                })
+                .catch(() => {
+
+                    started = false;
+
+                });
+
+        }
+
+    }
+
+
+    if (accept) {
+
+        accept.addEventListener("click", () => {
+
+            accept.classList.add("clicked");
+
+            fadeIn();
+
+            accept.style.cursor = "default";
+            accept.style.pointerEvents = "none";
+
+        }, { once: true });
+
+    }
+
+}); 
